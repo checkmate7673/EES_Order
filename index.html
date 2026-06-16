@@ -65,7 +65,7 @@
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-y-4 mb-8">
                 <div>
                     <h2 class="text-3xl font-semibold tracking-tight text-slate-900">Quick Order</h2>
-                    <p class="text-slate-600 mt-1">Browse parts and submit your order</p>
+                    <p class="text-slate-600 mt-1">Browse parts and submit your order.</p>
                 </div>
                 
                 <button onclick="showCart()" 
@@ -95,7 +95,7 @@
                 <div class="w-full md:w-72">
                     <select id="sort-select" onchange="applyFilters()"
                             class="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-3xl text-base outline-none cursor-pointer">
-                        <option value="default">Sort: Part Number</option>
+                        <option value="default">Sort: Frequent items</option>
                         <option value="az">Sort: Description (A–Z)</option>
                         <option value="price-low">Sort: Price Low → High</option>
                         <option value="price-high">Sort: Price High → Low</option>
@@ -127,7 +127,7 @@
 
             <div class="px-6 pt-5">
                 <label class="block text-sm font-medium text-slate-700 mb-1.5">PO Number</label>
-                <input type="text" id="po-number" placeholder="Required — enter your PO number"
+                <input type="text" id="po-number" placeholder="Required"
                        required
                        class="w-full border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-slate-400">
             </div>
@@ -158,871 +158,866 @@
     <script>
         let products = [
             {
-                        "Part Number": "2404-08-04",
-                        "Description": "1/2\" Male JIC x 1/4\" Male Pipe, EES P/N: 100297959",
-                        "price": 7.88,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "6400-12-10-O",
-                        "Description": "3/4\" Male JIC x 5/8\" Male ORing Boss",
-                        "price": 4.44,
-                        "qty2025": 12
-            },
-            {
-                        "Part Number": "6403-04-04",
-                        "Description": "1/4\" O-Ring Boss Union",
-                        "price": 6.26,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "6408-06-O-Hollow",
-                        "Description": "3/8\" SAE Hollow Hex Plug",
-                        "price": 3.11,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "6840-12-16",
-                        "Description": "3/4\" Male JIC x 1\" Code 61 Flange, Straight",
-                        "price": 38.95,
-                        "qty2025": 3
-            },
-            {
-                        "Part Number": "6890-12-12",
-                        "Description": "3/4\" Male JIC x 3/4\" Code 61 Flange, 90 Elbow",
-                        "price": 38.22,
-                        "qty2025": 3
-            },
-            {
-                        "Part Number": "CP-04005036",
-                        "Description": "Mating Coupling Cam-Lock Size 1",
-                        "price": 34.22,
-                        "qty2025": 4
-            },
-            {
-                        "Part Number": "CP-050C100YE",
-                        "Description": "50 mm Spiral Hose Protector - Yellow",
-                        "price": 8.86,
-                        "qty2025": 100
-            },
-            {
-                        "Part Number": "CP-06-450M",
-                        "Description": "Gooseneck O-Ring, 100298992",
-                        "price": 30.45,
-                        "qty2025": 50
-            },
-            {
-                        "Part Number": "CP-0912062X2",
-                        "Description": "1/16\" Thick x 2\" Wide x 100-foot long Fiberglass Tape",
-                        "price": 36.21,
-                        "qty2025": 40
-            },
-            {
-                        "Part Number": "CP-100298489",
-                        "Description": "High Pressure Block Body Ball Valve with Locking Handle, 16 mm",
-                        "price": 215.6,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-100298818",
-                        "Description": "Mag Chute Patch Liner, 6-1/2\" x 6-1/2\" x 1-1/2\"",
-                        "price": 432.54,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-100339384",
-                        "Description": "Buna Cord, 13/64\" Diameter, 70 Duro, 100-foot",
-                        "price": 192,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-100350388",
-                        "Description": "High Pressure Block Body Ball Valve with Locking Handle, 20 mm",
-                        "price": 287.82,
-                        "qty2025": 4
-            },
-            {
-                        "Part Number": "CP-1250-YellowCC",
-                        "Description": "3/4\" ID x 50-foot long Yellow Hose Assembly with Chicago fittings",
-                        "price": 265.96,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-1268-FJFJ",
-                        "Description": "3/4\" ID x 68\" OAL Hydraulic Hose Assembly with 3/4\" Female JIC",
-                        "price": 397.37,
-                        "qty2025": 3
-            },
-            {
-                        "Part Number": "CP-130C-2\"",
-                        "Description": "Scotch Linerless Rubber Splicing Tape 2” Wide",
-                        "price": 112.69,
-                        "qty2025": 48
-            },
-            {
                         "Part Number": "CP-1411965",
                         "Description": "Bitumen Grouting",
                         "price": 2.83,
-                        "qty2025": 1000
-            },
-            {
-                        "Part Number": "CP-1557210",
-                        "Description": "1-1/4\" ID X 66\" OAL Stainless Steel Hose Assembly",
-                        "price": 341.76,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-1630774-Spring-L",
-                        "Description": "Spring Assembly",
-                        "price": 1603.44,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-188DECY1620",
-                        "Description": "1\" ID x 88-foot DeCarb Hose Assembly",
-                        "price": 1679.01,
-                        "qty2025": 3
-            },
-            {
-                        "Part Number": "CP-20-0027",
-                        "Description": "Polyester Felt Filter Bag",
-                        "price": 98.74,
-                        "qty2025": 32
-            },
-            {
-                        "Part Number": "CP-20-0073",
-                        "Description": "Broke Bag Detector Element",
-                        "price": 174.11,
-                        "qty2025": 8
-            },
-            {
-                        "Part Number": "CP-20mmNWE-SS",
-                        "Description": "Boss Stainless Steel 20S Welding Nipple",
-                        "price": 67.9,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-4755-49SS150#",
-                        "Description": "4\" Stainless Steel Hose with 150# Flange",
-                        "price": 981.23,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-60P32",
-                        "Description": "2\" Wide 100% Black Bristle Utility Paint Brush",
-                        "price": 1.19,
-                        "qty2025": 504
-            },
-            {
-                        "Part Number": "CP-83065",
-                        "Description": "3-3/4\" Diameter x 4-1/2\" Long Brush with 1/4\" Nipple",
-                        "price": 56.89,
-                        "qty2025": 74
-            },
-            {
-                        "Part Number": "CP-CA-440EF-EC",
-                        "Description": "4\" ID x 40-foot long Extreme Flex Hose Assembly",
-                        "price": 1969.47,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-CL1000",
-                        "Description": "MagMate 1000# Holding Creative Lift Magnet",
-                        "price": 1256.99,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-FRP500-044872",
-                        "Description": "1/4\" Thick x 48\" Wide x 72\" Long FRP Sheet",
-                        "price": 585,
-                        "qty2025": 20
-            },
-            {
-                        "Part Number": "CP-HS-210EC",
-                        "Description": "2\" ID x 10-foot long hose assembly with Type E & C fittings",
-                        "price": 296.39,
-                        "qty2025": 8
-            },
-            {
-                        "Part Number": "CP-HS-220EC",
-                        "Description": "2\" ID x 20-foot long hose assembly with Type E & C fittings",
-                        "price": 485.8,
-                        "qty2025": 8
-            },
-            {
-                        "Part Number": "CP-JC20010-ECAL-Assy",
-                        "Description": "2\" ID x 10-foot Long Petroleum Transfer Hose Assembly",
-                        "price": 339.8,
-                        "qty2025": 14
-            },
-            {
-                        "Part Number": "CP-JC20020-ECAL-Assy",
-                        "Description": "2\" ID x 20-foot Long Petroleum Transfer Hose Assembly",
-                        "price": 512.36,
-                        "qty2025": 15
-            },
-            {
-                        "Part Number": "CP-JC20050-ECAL-Assy",
-                        "Description": "2\" ID x 50-foot Long Petroleum Transfer Hose Assembly",
-                        "price": 1166.95,
-                        "qty2025": 11
-            },
-            {
-                        "Part Number": "CP-KJ20050DJMDEC",
-                        "Description": "2\" ID x 50-foot long Double Jacket Mill Hose",
-                        "price": 355.5,
-                        "qty2025": 4
-            },
-            {
-                        "Part Number": "CP-KJ325EC",
-                        "Description": "3\" ID x 25-foot with E & C Aluminum",
-                        "price": 993.44,
-                        "qty2025": 2
-            },
-            {
-                        "Part Number": "CP-KJ330EC",
-                        "Description": "3\" ID x 30-foot with E & C Aluminum",
-                        "price": 1085.49,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-MM02621",
-                        "Description": "Mr Clean Floor Cleaner, 1 gal., Lemon",
-                        "price": 39.11,
-                        "qty2025": 18
-            },
-            {
-                        "Part Number": "CP-NTGascock",
-                        "Description": "On/Off Gascock with 3/4\" Brass Bushing",
-                        "price": 23.65,
-                        "qty2025": 12
-            },
-            {
-                        "Part Number": "CP-RLB0",
-                        "Description": "Insulating Roll Blanket, Lo-Voltage",
-                        "price": 3035.71,
-                        "qty2025": 2
-            },
-            {
-                        "Part Number": "CP-S600682",
-                        "Description": "1\" Swivel Assembly, EES P/N: 100295326",
-                        "price": 279.35,
-                        "qty2025": 4
-            },
-            {
-                        "Part Number": "CP-SM21620-6Foot",
-                        "Description": "Schroeder Check Test Point System Hose Assembly, 6-foot",
-                        "price": 185.32,
-                        "qty2025": 12
-            },
-            {
-                        "Part Number": "CP-SS-8F-K4-230",
-                        "Description": "230 Micron Element Kit for 6F, 8F series",
-                        "price": 57.88,
-                        "qty2025": 10
-            },
-            {
-                        "Part Number": "CP-SS0816MP",
-                        "Description": "1/2\" ID x 16\" OAL Stainless Steel Hose Assembly",
-                        "price": 110.43,
-                        "qty2025": 24
-            },
-            {
-                        "Part Number": "CP-SS0848MP",
-                        "Description": "1/2\" ID x 48\" OAL Stainless Steel Hose Assembly",
-                        "price": 153.22,
-                        "qty2025": 18
-            },
-            {
-                        "Part Number": "CP-SS0872MP",
-                        "Description": "1/2\" ID x 72\" OAL Stainless Steel Hose Assembly",
-                        "price": 188.73,
-                        "qty2025": 10
-            },
-            {
-                        "Part Number": "CP-SS1236MP",
-                        "Description": "3/4\" ID x 36\" OAL Stainless Steel Hose Assembly",
-                        "price": 193.49,
-                        "qty2025": 4
-            },
-            {
-                        "Part Number": "CP-SS1272MP",
-                        "Description": "3/4\" ID x 72\" OAL Stainless Steel Hose Assembly",
-                        "price": 182.67,
-                        "qty2025": 12
-            },
-            {
-                        "Part Number": "CP-SS2084MPMP",
-                        "Description": "1-1/4\" ID x 84\" OAL Stainless Steel Hose Assembly",
-                        "price": 358.11,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-SS32120EC",
-                        "Description": "2\" ID x 10-foot OAL Stainless Steel Hose Assembly with E & C Cams",
-                        "price": 604.54,
-                        "qty2025": 2
-            },
-            {
-                        "Part Number": "CP-SS32120MP",
-                        "Description": "2\" ID x 10-foot OAL Stainless Steel Hose Assembly",
-                        "price": 542.82,
-                        "qty2025": 3
-            },
-            {
-                        "Part Number": "CP-SS3217MP",
-                        "Description": "2\" ID x 17\" OAL Stainless Steel Hose Assembly",
-                        "price": 264.44,
-                        "qty2025": 4
-            },
-            {
-                        "Part Number": "CP-SS32240EC",
-                        "Description": "2\" ID x 20-foot OAL Stainless Steel Hose Assembly with E & C Cams",
-                        "price": 859.06,
-                        "qty2025": 2
-            },
-            {
-                        "Part Number": "CP-SS3248MP",
-                        "Description": "2\" ID x 4-foot OAL Stainless Steel Hose Assembly",
-                        "price": 429.86,
-                        "qty2025": 8
-            },
-            {
-                        "Part Number": "CP-SS3272MP",
-                        "Description": "2\" ID x 6-foot OAL Stainless Steel Hose Assembly",
-                        "price": 487.33,
-                        "qty2025": 3
-            },
-            {
-                        "Part Number": "CP-SS3296MP",
-                        "Description": "2\" ID x 96\" OAL Stainless Steel Hose Assembly",
-                        "price": 540.51,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-SS6460MP150FL",
-                        "Description": "4\" ID x 60\" Long Stainless Steel Hose Assembly",
-                        "price": 748.26,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-SS96120MP150FL",
-                        "Description": "6\" ID x 120\" Long Stainless Steel Hose Assembly",
-                        "price": 1566.28,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-SSB-0000-001-012",
-                        "Description": "3/4\" ID Braid Tetraglas 3000 Silica",
-                        "price": 15.71,
-                        "qty2025": 250
-            },
-            {
-                        "Part Number": "CP-SSLE-4-D1",
-                        "Description": "Dual Colored Shaker Screen Wide Side with 1\" Openings",
-                        "price": 565,
-                        "qty2025": 40
-            },
-            {
-                        "Part Number": "CP-SSM-4-D1",
-                        "Description": "Dual Colored Shaker Screen Middle Section",
-                        "price": 565,
-                        "qty2025": 50
-            },
-            {
-                        "Part Number": "CP-TB125MPMP",
-                        "Description": "1\" ID Tank Truck x 25-foot long with 1\" MNPT each end",
-                        "price": 368.25,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-TB300100ECAL",
-                        "Description": "3\" ID x 100-foot Long Petroleum Transfer Hose Assembly",
-                        "price": 1597.31,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-TB450EC",
-                        "Description": "4\" ID Tank Truck x 50-foot long with E & C Aluminum",
-                        "price": 1899.21,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-TB475LFEC",
-                        "Description": "4\" ID LayFlat Medium x 75-foot long with E & C Aluminum",
-                        "price": 798.91,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-TB650-45150Float",
-                        "Description": "6\" ID x 50-feet Travel x 45 Deg 150# Floating Flanges",
-                        "price": 8275,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-TBSS4830MP150",
-                        "Description": "3\" ID x 30\" OAL Stainless Steel Hose Assembly",
-                        "price": 435.67,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-UBP-131637848-70Blue",
-                        "Description": "1-3/16\" OAL Thick x 1/4\" Thick Plate Urethane Bumper",
-                        "price": 420,
-                        "qty2025": 32
-            },
-            {
-                        "Part Number": "CP-UBP-1316948-70Blue",
-                        "Description": "1-3/16\" OAL Thick x 9\" Wide x 47-1/2\" OAL Urethane Bumper",
-                        "price": 748,
-                        "qty2025": 16
-            },
-            {
-                        "Part Number": "PJ-12X",
-                        "Description": "3/4\" Pyrotex Firesleeve Aerospace-Grade Braid",
-                        "price": 7.33,
-                        "qty2025": 300
-            },
-            {
-                        "Part Number": "PJ-16X",
-                        "Description": "1\" Pyrotex Firesleeve Aerospace-Grade Braid",
-                        "price": 6.88,
-                        "qty2025": 400
+                        "qty2025": 1000.0
             },
             {
                         "Part Number": "PJ-24X",
                         "Description": "1-1/2\" Pyrojacket Aerospace-Grade Braid",
                         "price": 9.89,
-                        "qty2025": 600
-            },
-            {
-                        "Part Number": "CJ0808SSSWPU",
-                        "Description": "1/2\" Stainless Steel Socket Weld Pipe Union",
-                        "price": 232.95,
-                        "qty2025": 16
-            },
-            {
-                        "Part Number": "CJ1212SSSWPU",
-                        "Description": "3/4\" Stainless Steel Socket Weld Pipe Union",
-                        "price": 403.65,
-                        "qty2025": 5
-            },
-            {
-                        "Part Number": "CJ16FDINx16WTSS",
-                        "Description": "16 mm Female DIN x 16 mm Weld Tube, Stainless Steel",
-                        "price": 53.69,
-                        "qty2025": 10
-            },
-            {
-                        "Part Number": "CJ2020SSSWPU",
-                        "Description": "1-1/4\" Stainless Steel Socket Weld Pipe Union",
-                        "price": 920.36,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CJ20FDINx20WTSS",
-                        "Description": "20 mm Female DIN x 20 mm Weld Tube, Stainless Steel",
-                        "price": 65.11,
-                        "qty2025": 15
-            },
-            {
-                        "Part Number": "CJ25FDINx25WTSS",
-                        "Description": "25 mm Female DIN x 25 mm Weld Tube, Stainless Steel",
-                        "price": 115.86,
-                        "qty2025": 4
-            },
-            {
-                        "Part Number": "CJ30FDINx30WTSS",
-                        "Description": "30 mm Female DIN x 30 mm Weld Tube, Stainless Steel",
-                        "price": 153.8,
-                        "qty2025": 14
-            },
-            {
-                        "Part Number": "CJ38FDINx38WTSS",
-                        "Description": "38 mm Female DIN x 38 mm Weld Tube, Stainless Steel",
-                        "price": 198.2,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-061550-6FJ6FJ",
-                        "Description": "3/8\" ID x 1550 mm OAL with 3/8\" Female JIC Swivel each end",
-                        "price": 189.81,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-063000-6FJ6FJ",
-                        "Description": "3/8\" ID x 3000 mm OAL with 3/8\" Female JIC Swivel each end",
-                        "price": 268.25,
-                        "qty2025": 5
-            },
-            {
-                        "Part Number": "CP-06600-6FJ6FJ",
-                        "Description": "3/8\" ID x 600 mm OAL with 3/8\" Female JIC Swivel each end",
-                        "price": 148.92,
-                        "qty2025": 3
-            },
-            {
-                        "Part Number": "CP-06800-6FJ6FJ",
-                        "Description": "3/8\" ID x 800 mm OAL with 3/8\" Female JIC Swivel each end",
-                        "price": 149.23,
-                        "qty2025": 2
-            },
-            {
-                        "Part Number": "CP-0684-FJFJ",
-                        "Description": "3/8\" ID x 84\" OAL with 3/8\" Female JIC Fittings each end with Fire Jacket",
-                        "price": 249.11,
-                        "qty2025": 4
-            },
-            {
-                        "Part Number": "CP-081000-16ST16ST",
-                        "Description": "1/2\" ID x 1000 mm OAL with -16 Straight Fitting each end",
-                        "price": 246.69,
-                        "qty2025": 4
-            },
-            {
-                        "Part Number": "CP-081050-16ST1690",
-                        "Description": "1/2\" ID x 1050 mm OAL with -16 Straight and -16 90 Deg",
-                        "price": 262.13,
-                        "qty2025": 3
-            },
-            {
-                        "Part Number": "CP-081200-16ST16ST",
-                        "Description": "1/2\" ID x 1200 mm OAL with -16 Straight fittings each end",
-                        "price": 258.73,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-081200-8FJ8FJ",
-                        "Description": "1/2\" ID x 1200 mm OAL with 1/2\" Female JIC each end and Fire Jacket",
-                        "price": 258.73,
-                        "qty2025": 5
-            },
-            {
-                        "Part Number": "CP-081300-16ST1690",
-                        "Description": "1/2\" ID x 1300 mm OAL with -16 Straight and -16 90 Deg",
-                        "price": 348.83,
-                        "qty2025": 2
-            },
-            {
-                        "Part Number": "CP-081500-16ST1690",
-                        "Description": "1/2\" ID x 1500 mm OAL with -16 Straight and -16 90 Deg",
-                        "price": 343.4,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-081600-16ST16ST",
-                        "Description": "1/2\" ID x 1600 mm OAL with -16 Straight fittings each end",
-                        "price": 330.67,
-                        "qty2025": 8
-            },
-            {
-                        "Part Number": "CP-081750-16ST1690",
-                        "Description": "1/2\" ID x 1750 mm OAL with -16 Straight and -16 90 Deg",
-                        "price": 367.44,
-                        "qty2025": 2
-            },
-            {
-                        "Part Number": "CP-081900-8FJ8FJ",
-                        "Description": "1/2\" ID x 1900 mm OAL with 1/2\" Female JIC each end and Fire Jacket",
-                        "price": 298.76,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-082000-16ST16ST",
-                        "Description": "1/2\" ID x 2000 mm OAL with -16 Straight fittings each end",
-                        "price": 320.18,
-                        "qty2025": 4
-            },
-            {
-                        "Part Number": "CP-082500-16ST16ST",
-                        "Description": "1/2\" ID x 2500 mm OAL with -16 Straight fittings each end",
-                        "price": 378.44,
-                        "qty2025": 9
-            },
-            {
-                        "Part Number": "CP-0830-8FJ8FJ90",
-                        "Description": "1/2\" ID x 30\" OAL with 1/2\" Female JIC Swivel x 1/2\" Female JIC 90",
-                        "price": 207.14,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-0836-8FJ8FJ",
-                        "Description": "1/2\" ID x 36\" OAL Hydraulic Hose Assembly with Jacket",
-                        "price": 188.02,
-                        "qty2025": 8
-            },
-            {
-                        "Part Number": "CP-08600-16ST16ST",
-                        "Description": "1/2\" ID x 600 mm OAL with -16 Straight fittings each end",
-                        "price": 269.17,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-08700-8FJ8FJ",
-                        "Description": "1/2\" ID x 700 mm OAL with 1/2\" Female JIC Swivel each end",
-                        "price": 193.44,
-                        "qty2025": 2
-            },
-            {
-                        "Part Number": "CP-08750-16ST1690",
-                        "Description": "1/2\" ID x 750 mm OAL with -16 Straight and -16 90 Deg",
-                        "price": 278.92,
-                        "qty2025": 9
-            },
-            {
-                        "Part Number": "CP-08800-16ST16ST",
-                        "Description": "1/2\" ID x 800 mm OAL with -16 Straight Fitting each end and Fire Jacket",
-                        "price": 268.42,
-                        "qty2025": 6
-            },
-            {
-                        "Part Number": "CP-08800-8FJ8FJ",
-                        "Description": "1/2\" ID x 800 mm OAL with 1/2\" Female JIC Swivel each end",
-                        "price": 254.64,
-                        "qty2025": 2
-            },
-            {
-                        "Part Number": "CP-101000-20ST20ST",
-                        "Description": "5/8\" ID x 1000 mm OAL with -20 Straight Fittings each end",
-                        "price": 257.71,
-                        "qty2025": 8
-            },
-            {
-                        "Part Number": "CP-101050-20ST2090",
-                        "Description": "5/8\" ID x 1050mm OAL with -20 Straight and -20 90 Deg",
-                        "price": 345.77,
-                        "qty2025": 2
-            },
-            {
-                        "Part Number": "CP-101250-20ST2090",
-                        "Description": "5/8\" ID x 1250mm OAL with -20 Straight and -20 90 Deg",
-                        "price": 363.75,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-101600-20ST20ST",
-                        "Description": "5/8\" ID x 1600 mm OAL with -20 Straight Fittings each end",
-                        "price": 332.54,
-                        "qty2025": 3
-            },
-            {
-                        "Part Number": "CP-102500-20ST20ST",
-                        "Description": "5/8\" ID x 500 mm OAL with -20 Straight Fittings each end",
-                        "price": 390.47,
-                        "qty2025": 9
-            },
-            {
-                        "Part Number": "CP-10400-20ST2090",
-                        "Description": "5/8\" ID x 400 mm OAL with -20 Straight and -20 90 Deg",
-                        "price": 253.62,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-10500-20ST2090",
-                        "Description": "5/8\" ID x 500 mm OAL with -20 Straight Fittings each end",
-                        "price": 262.51,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-10700-20ST20ST",
-                        "Description": "5/8\" ID x 700 mm OAL with -20 Straight Fittings each end",
-                        "price": 262.33,
-                        "qty2025": 4
-            },
-            {
-                        "Part Number": "CP-10750-20ST2090",
-                        "Description": "5/8\" ID x 750mm OAL with -20 Straight and -20 90 Deg",
-                        "price": 285.09,
-                        "qty2025": 5
-            },
-            {
-                        "Part Number": "CP-10800-20ST20ST",
-                        "Description": "5/8\" ID x 800 mm OAL with -20 Straight Fittings each end",
-                        "price": 267.36,
-                        "qty2025": 12
-            },
-            {
-                        "Part Number": "CP-121100-FJFJ90-No",
-                        "Description": "3/4\" ID x 1100 mm OAL with 3/4\" Female JIC Swivel x 90 Deg",
-                        "price": 177.29,
-                        "qty2025": 5
-            },
-            {
-                        "Part Number": "CP-121250-25ST25ST",
-                        "Description": "3/4\" ID x 1250 mm OAL with 3/4\" Female -25 DIN Swivel",
-                        "price": 389.11,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-121800-12FJ12FJ",
-                        "Description": "3/4\" ID x 1800 mm OAL with 3/4\" Female JIC Swivel each end",
-                        "price": 321.49,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-122000-25ST25ST",
-                        "Description": "3/4\" ID x 2000 mm OAL with 3/4\" Female -25 DIN Swivel",
-                        "price": 438.94,
-                        "qty2025": 2
-            },
-            {
-                        "Part Number": "CP-1237.5-MPMP-No",
-                        "Description": "3/4\" ID x 37.5\" OAL with 3/4\" Male Pipe each end",
-                        "price": 280.58,
-                        "qty2025": 2
-            },
-            {
-                        "Part Number": "CP-12400-25ST2590",
-                        "Description": "3/4\" ID x 400mm OAL with 3/4\" Female -25 DIN Swivel x 90",
-                        "price": 353.11,
-                        "qty2025": 1
-            },
-            {
-                        "Part Number": "CP-12750-12FJ12FJ-No",
-                        "Description": "3/4\" ID x 750 mm OAL with 3/4\" Female JIC Swivel each end",
-                        "price": 285.09,
-                        "qty2025": 2
+                        "qty2025": 600.0
             },
             {
                         "Part Number": "CP-1556749-30FT",
                         "Description": "1/2\" ID x 30' Long Hose Assembly with 1/2\" QD and Chicago fittings",
                         "price": 110.13,
-                        "qty2025": 560
+                        "qty2025": 560.0
+            },
+            {
+                        "Part Number": "CP-60P32",
+                        "Description": "2\" Wide 100% Black Bristle Utility Paint Brush",
+                        "price": 1.19,
+                        "qty2025": 504.0
+            },
+            {
+                        "Part Number": "PJ-16X",
+                        "Description": "1\" Pyrotex Firesleeve Aerospace-Grade Braid",
+                        "price": 6.88,
+                        "qty2025": 400.0
+            },
+            {
+                        "Part Number": "PJ-12X",
+                        "Description": "3/4\" Pyrotex Firesleeve Aerospace-Grade Braid",
+                        "price": 7.33,
+                        "qty2025": 300.0
+            },
+            {
+                        "Part Number": "CP-SSB-0000-001-012",
+                        "Description": "3/4\" ID Braid Tetraglas 3000 Silica",
+                        "price": 15.71,
+                        "qty2025": 250.0
             },
             {
                         "Part Number": "CP-1556749-30FT/Whip",
                         "Description": "1/2\" ID x 30' Long Hose Assembly with 1/2\" QD and Chicago (Whip)",
                         "price": 189.66,
-                        "qty2025": 140
+                        "qty2025": 140.0
+            },
+            {
+                        "Part Number": "CP-050C100YE",
+                        "Description": "50 mm Spiral Hose Protector - Yellow",
+                        "price": 8.86,
+                        "qty2025": 100.0
+            },
+            {
+                        "Part Number": "CP-83065",
+                        "Description": "3-3/4\" Diameter x 4-1/2\" Long Brush with 1/4\" Nipple",
+                        "price": 56.89,
+                        "qty2025": 74.0
             },
             {
                         "Part Number": "CP-1557913",
                         "Description": "3/4\" ID x 50-foot long Steam hose assembly with crimped ends",
                         "price": 612.36,
-                        "qty2025": 60
+                        "qty2025": 60.0
             },
             {
-                        "Part Number": "CP-1557913-10",
-                        "Description": "3/4\" x 10-foot long Steam Hose Assembly",
-                        "price": 411.95,
-                        "qty2025": 5
+                        "Part Number": "CP-06-450M",
+                        "Description": "Gooseneck O-Ring, 100298992",
+                        "price": 30.45,
+                        "qty2025": 50.0
             },
             {
-                        "Part Number": "CP-1557913-Red",
-                        "Description": "3/4\" ID x 50-foot long Steam hose assembly - Red",
-                        "price": 692.11,
-                        "qty2025": 2
+                        "Part Number": "CP-SSM-4-D1",
+                        "Description": "Dual Colored Shaker Screen Middle Section",
+                        "price": 565,
+                        "qty2025": 50.0
             },
             {
-                        "Part Number": "CP-161200-16FJ16FJ",
-                        "Description": "1\" ID x 1200 mm OAL with 1\" Female JIC Swivel Fittings each end",
-                        "price": 513.04,
-                        "qty2025": 2
+                        "Part Number": "CP-130C-2\"",
+                        "Description": "Scotch Linerless Rubber Splicing Tape 2” Wide",
+                        "price": 112.69,
+                        "qty2025": 48.0
             },
             {
-                        "Part Number": "CP-161200-30ST30ST",
-                        "Description": "1\" ID x 1200 mm OAL with -30 Straight Fittings each end and Fire Jacket",
-                        "price": 567.43,
-                        "qty2025": 1
+                        "Part Number": "CP-0912062X2",
+                        "Description": "1/16\" Thick x 2\" Wide x 100-foot long Fiberglass Tape",
+                        "price": 36.21,
+                        "qty2025": 40.0
             },
             {
-                        "Part Number": "CP-1639-16FJ16FJ",
-                        "Description": "1\" ID x 39\" OAL with 1\" Female JIC Swivel Fittings each end",
-                        "price": 294.59,
-                        "qty2025": 1
+                        "Part Number": "CP-SSLE-4-D1",
+                        "Description": "Dual Colored Shaker Screen Wide Side with 1\" Openings",
+                        "price": 565,
+                        "qty2025": 40.0
             },
             {
-                        "Part Number": "CP-1648-16FJ16FJ-No",
-                        "Description": "1\" ID x 48\" OAL with 1\" Female JIC Swivel Fittings each end",
-                        "price": 250.77,
-                        "qty2025": 4
+                        "Part Number": "CP-20-0027",
+                        "Description": "Polyester Felt Filter Bag",
+                        "price": 98.74,
+                        "qty2025": 32.0
             },
             {
-                        "Part Number": "CP-16800-30ST30ST",
-                        "Description": "1\" ID x 800 mm OAL with -30 Straight Fittings each end and Fire Jacket",
-                        "price": 522.45,
-                        "qty2025": 3
+                        "Part Number": "CP-UBP-131637848-70Blue",
+                        "Description": "1-3/16\" OAL Thick x 1/4\" Thick Plate Urethane Bumper",
+                        "price": 420,
+                        "qty2025": 32.0
+            },
+            {
+                        "Part Number": "CP-SS0816MP",
+                        "Description": "1/2\" ID x 16\" OAL Stainless Steel Hose Assembly",
+                        "price": 110.43,
+                        "qty2025": 24.0
+            },
+            {
+                        "Part Number": "CP-FRP500-044872",
+                        "Description": "1/4\" Thick x 48\" Wide x 72\" Long FRP Sheet",
+                        "price": 585,
+                        "qty2025": 20.0
+            },
+            {
+                        "Part Number": "CP-MM02621",
+                        "Description": "Mr Clean Floor Cleaner, 1 gal., Lemon",
+                        "price": 39.11,
+                        "qty2025": 18.0
+            },
+            {
+                        "Part Number": "CP-SS0848MP",
+                        "Description": "1/2\" ID x 48\" OAL Stainless Steel Hose Assembly",
+                        "price": 153.22,
+                        "qty2025": 18.0
+            },
+            {
+                        "Part Number": "CJ0808SSSWPU",
+                        "Description": "1/2\" Stainless Steel Socket Weld Pipe Union",
+                        "price": 232.95,
+                        "qty2025": 16.0
+            },
+            {
+                        "Part Number": "CP-UBP-1316948-70Blue",
+                        "Description": "1-3/16\" OAL Thick x 9\" Wide x 47-1/2\" OAL Urethane Bumper",
+                        "price": 748,
+                        "qty2025": 16.0
+            },
+            {
+                        "Part Number": "CJ20FDINx20WTSS",
+                        "Description": "20 mm Female DIN x 20 mm Weld Tube, Stainless Steel",
+                        "price": 65.11,
+                        "qty2025": 15.0
+            },
+            {
+                        "Part Number": "CP-JC20020-ECAL-Assy",
+                        "Description": "2\" ID x 20-foot Long Petroleum Transfer Hose Assembly",
+                        "price": 512.36,
+                        "qty2025": 15.0
+            },
+            {
+                        "Part Number": "CJ30FDINx30WTSS",
+                        "Description": "30 mm Female DIN x 30 mm Weld Tube, Stainless Steel",
+                        "price": 153.8,
+                        "qty2025": 14.0
+            },
+            {
+                        "Part Number": "CP-JC20010-ECAL-Assy",
+                        "Description": "2\" ID x 10-foot Long Petroleum Transfer Hose Assembly",
+                        "price": 339.8,
+                        "qty2025": 14.0
+            },
+            {
+                        "Part Number": "6400-12-10-O",
+                        "Description": "3/4\" Male JIC x 5/8\" Male ORing Boss",
+                        "price": 4.44,
+                        "qty2025": 12.0
+            },
+            {
+                        "Part Number": "CP-10800-20ST20ST",
+                        "Description": "5/8\" ID x 800 mm OAL with -20 Straight Fittings each end",
+                        "price": 267.36,
+                        "qty2025": 12.0
             },
             {
                         "Part Number": "CP-16FDINx16WT-SS",
                         "Description": "16 mm Female DIN x 16 mm Weld Tube, Stainless Steel",
                         "price": 78.99,
-                        "qty2025": 12
+                        "qty2025": 12.0
+            },
+            {
+                        "Part Number": "CP-NTGascock",
+                        "Description": "On/Off Gascock with 3/4\" Brass Bushing",
+                        "price": 23.65,
+                        "qty2025": 12.0
+            },
+            {
+                        "Part Number": "CP-SM21620-6Foot",
+                        "Description": "Schroeder Check Test Point System Hose Assembly, 6-foot",
+                        "price": 185.32,
+                        "qty2025": 12.0
+            },
+            {
+                        "Part Number": "CP-SS1272MP",
+                        "Description": "3/4\" ID x 72\" OAL Stainless Steel Hose Assembly",
+                        "price": 182.67,
+                        "qty2025": 12.0
+            },
+            {
+                        "Part Number": "CP-JC20050-ECAL-Assy",
+                        "Description": "2\" ID x 50-foot Long Petroleum Transfer Hose Assembly",
+                        "price": 1166.95,
+                        "qty2025": 11.0
+            },
+            {
+                        "Part Number": "CJ16FDINx16WTSS",
+                        "Description": "16 mm Female DIN x 16 mm Weld Tube, Stainless Steel",
+                        "price": 53.69,
+                        "qty2025": 10.0
+            },
+            {
+                        "Part Number": "CP-SS-8F-K4-230",
+                        "Description": "230 Micron Element Kit for 6F, 8F series",
+                        "price": 57.88,
+                        "qty2025": 10.0
+            },
+            {
+                        "Part Number": "CP-SS0872MP",
+                        "Description": "1/2\" ID x 72\" OAL Stainless Steel Hose Assembly",
+                        "price": 188.73,
+                        "qty2025": 10.0
+            },
+            {
+                        "Part Number": "CP-082500-16ST16ST",
+                        "Description": "1/2\" ID x 2500 mm OAL with -16 Straight fittings each end",
+                        "price": 378.44,
+                        "qty2025": 9.0
+            },
+            {
+                        "Part Number": "CP-08750-16ST1690",
+                        "Description": "1/2\" ID x 750 mm OAL with -16 Straight and -16 90 Deg",
+                        "price": 278.92,
+                        "qty2025": 9.0
+            },
+            {
+                        "Part Number": "CP-102500-20ST20ST",
+                        "Description": "5/8\" ID x 500 mm OAL with -20 Straight Fittings each end",
+                        "price": 390.47,
+                        "qty2025": 9.0
+            },
+            {
+                        "Part Number": "CP-081600-16ST16ST",
+                        "Description": "1/2\" ID x 1600 mm OAL with -16 Straight fittings each end",
+                        "price": 330.67,
+                        "qty2025": 8.0
+            },
+            {
+                        "Part Number": "CP-0836-8FJ8FJ",
+                        "Description": "1/2\" ID x 36\" OAL Hydraulic Hose Assembly with Jacket",
+                        "price": 188.02,
+                        "qty2025": 8.0
+            },
+            {
+                        "Part Number": "CP-101000-20ST20ST",
+                        "Description": "5/8\" ID x 1000 mm OAL with -20 Straight Fittings each end",
+                        "price": 257.71,
+                        "qty2025": 8.0
+            },
+            {
+                        "Part Number": "CP-20-0073",
+                        "Description": "Broke Bag Detector Element",
+                        "price": 174.11,
+                        "qty2025": 8.0
+            },
+            {
+                        "Part Number": "CP-HS-210EC",
+                        "Description": "2\" ID x 10-foot long hose assembly with Type E & C fittings",
+                        "price": 296.39,
+                        "qty2025": 8.0
+            },
+            {
+                        "Part Number": "CP-HS-220EC",
+                        "Description": "2\" ID x 20-foot long hose assembly with Type E & C fittings",
+                        "price": 485.8,
+                        "qty2025": 8.0
+            },
+            {
+                        "Part Number": "CP-SS3248MP",
+                        "Description": "2\" ID x 4-foot OAL Stainless Steel Hose Assembly",
+                        "price": 429.86,
+                        "qty2025": 8.0
+            },
+            {
+                        "Part Number": "2404-08-04",
+                        "Description": "1/2\" Male JIC x 1/4\" Male Pipe, EES P/N: 100297959",
+                        "price": 7.88,
+                        "qty2025": 6.0
+            },
+            {
+                        "Part Number": "6403-04-04",
+                        "Description": "1/4\" O-Ring Boss Union",
+                        "price": 6.26,
+                        "qty2025": 6.0
+            },
+            {
+                        "Part Number": "6408-06-O-Hollow",
+                        "Description": "3/8\" SAE Hollow Hex Plug",
+                        "price": 3.11,
+                        "qty2025": 6.0
+            },
+            {
+                        "Part Number": "CJ2020SSSWPU",
+                        "Description": "1-1/4\" Stainless Steel Socket Weld Pipe Union",
+                        "price": 920.36,
+                        "qty2025": 6.0
+            },
+            {
+                        "Part Number": "CJ38FDINx38WTSS",
+                        "Description": "38 mm Female DIN x 38 mm Weld Tube, Stainless Steel",
+                        "price": 198.2,
+                        "qty2025": 6.0
+            },
+            {
+                        "Part Number": "CP-081200-16ST16ST",
+                        "Description": "1/2\" ID x 1200 mm OAL with -16 Straight fittings each end",
+                        "price": 258.73,
+                        "qty2025": 6.0
+            },
+            {
+                        "Part Number": "CP-081500-16ST1690",
+                        "Description": "1/2\" ID x 1500 mm OAL with -16 Straight and -16 90 Deg",
+                        "price": 343.4,
+                        "qty2025": 6.0
+            },
+            {
+                        "Part Number": "CP-08600-16ST16ST",
+                        "Description": "1/2\" ID x 600 mm OAL with -16 Straight fittings each end",
+                        "price": 269.17,
+                        "qty2025": 6.0
+            },
+            {
+                        "Part Number": "CP-08800-16ST16ST",
+                        "Description": "1/2\" ID x 800 mm OAL with -16 Straight Fitting each end and Fire Jacket",
+                        "price": 268.42,
+                        "qty2025": 6.0
+            },
+            {
+                        "Part Number": "CP-100298489",
+                        "Description": "High Pressure Block Body Ball Valve with Locking Handle, 16 mm",
+                        "price": 215.6,
+                        "qty2025": 6.0
+            },
+            {
+                        "Part Number": "CP-100298818",
+                        "Description": "Mag Chute Patch Liner, 6-1/2\" x 6-1/2\" x 1-1/2\"",
+                        "price": 432.54,
+                        "qty2025": 6.0
+            },
+            {
+                        "Part Number": "CP-1250-YellowCC",
+                        "Description": "3/4\" ID x 50-foot long Yellow Hose Assembly with Chicago fittings",
+                        "price": 265.96,
+                        "qty2025": 6.0
+            },
+            {
+                        "Part Number": "CP-1557210",
+                        "Description": "1-1/4\" ID X 66\" OAL Stainless Steel Hose Assembly",
+                        "price": 341.76,
+                        "qty2025": 6.0
             },
             {
                         "Part Number": "CP-1816-Flap",
                         "Description": "8\" Wide x 197\" OAL x 1/2\" Thick with Punch Holes",
                         "price": 422.35,
-                        "qty2025": 6
+                        "qty2025": 6.0
             },
             {
-                        "Part Number": "CP-201100-38ST38ST",
-                        "Description": "1-1/4\" ID x 1100mm OAL with -38 Straight Fittings and Fire Jacket",
-                        "price": 846.95,
-                        "qty2025": 4
+                        "Part Number": "CP-20mmNWE-SS",
+                        "Description": "Boss Stainless Steel 20S Welding Nipple",
+                        "price": 67.9,
+                        "qty2025": 6.0
             },
             {
-                        "Part Number": "CP-201250-38ST3890",
-                        "Description": "1-1/4\" ID x 1250mm OAL with -38 Straight x -38 90 Deg",
-                        "price": 1098.78,
-                        "qty2025": 2
+                        "Part Number": "CP-SS2084MPMP",
+                        "Description": "1-1/4\" ID x 84\" OAL Stainless Steel Hose Assembly",
+                        "price": 358.11,
+                        "qty2025": 6.0
             },
             {
-                        "Part Number": "CP-2036-20MP",
-                        "Description": "1-1/4\" ID x 36\" OAL High Pressure Hydraulic Hose Assembly with Fire Jacket",
-                        "price": 572.11,
-                        "qty2025": 4
+                        "Part Number": "CP-SS3296MP",
+                        "Description": "2\" ID x 96\" OAL Stainless Steel Hose Assembly",
+                        "price": 540.51,
+                        "qty2025": 6.0
             },
             {
-                        "Part Number": "CP-20400-38ST38ST",
-                        "Description": "1-1/4\" ID x 400mm OAL with -38 Straight Fittings each end",
-                        "price": 672.31,
-                        "qty2025": 2
+                        "Part Number": "CP-TB300100ECAL",
+                        "Description": "3\" ID x 100-foot Long Petroleum Transfer Hose Assembly",
+                        "price": 1597.31,
+                        "qty2025": 6.0
             },
             {
-                        "Part Number": "CP-20800-38ST38ST",
-                        "Description": "1-1/4\" ID x 800mm OAL with -38 Straight Fittings each end",
-                        "price": 833.01,
-                        "qty2025": 1
+                        "Part Number": "CJ1212SSSWPU",
+                        "Description": "3/4\" Stainless Steel Socket Weld Pipe Union",
+                        "price": 403.65,
+                        "qty2025": 5.0
             },
             {
-                        "Part Number": "CP-20900-38ST3890",
-                        "Description": "1-1/4\" ID x 900mm OAL with -38 Straight x -38 90 Deg",
-                        "price": 889.04,
-                        "qty2025": 1
+                        "Part Number": "CP-063000-6FJ6FJ",
+                        "Description": "3/8\" ID x 3000 mm OAL with 3/8\" Female JIC Swivel each end",
+                        "price": 268.25,
+                        "qty2025": 5.0
+            },
+            {
+                        "Part Number": "CP-081200-8FJ8FJ",
+                        "Description": "1/2\" ID x 1200 mm OAL with 1/2\" Female JIC each end and Fire Jacket",
+                        "price": 258.73,
+                        "qty2025": 5.0
+            },
+            {
+                        "Part Number": "CP-10750-20ST2090",
+                        "Description": "5/8\" ID x 750mm OAL with -20 Straight and -20 90 Deg",
+                        "price": 285.09,
+                        "qty2025": 5.0
+            },
+            {
+                        "Part Number": "CP-121100-FJFJ90-No",
+                        "Description": "3/4\" ID x 1100 mm OAL with 3/4\" Female JIC Swivel x 90 Deg",
+                        "price": 177.29,
+                        "qty2025": 5.0
+            },
+            {
+                        "Part Number": "CP-1557913-10",
+                        "Description": "3/4\" x 10-foot long Steam Hose Assembly",
+                        "price": 411.95,
+                        "qty2025": 5.0
             },
             {
                         "Part Number": "CP-CA-210EC",
                         "Description": "2\" ID x 10-foot long hose assembly with Type E & C fittings each end",
                         "price": 296.39,
-                        "qty2025": 5
+                        "qty2025": 5.0
             },
             {
                         "Part Number": "CP-CA-220EC",
                         "Description": "2\" ID x 20-foot long hose assembly with Type E & C fittings each end",
                         "price": 485.85,
-                        "qty2025": 5
+                        "qty2025": 5.0
+            },
+            {
+                        "Part Number": "CJ25FDINx25WTSS",
+                        "Description": "25 mm Female DIN x 25 mm Weld Tube, Stainless Steel",
+                        "price": 115.86,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-04005036",
+                        "Description": "Mating Coupling Cam-Lock Size 1",
+                        "price": 34.22,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-0684-FJFJ",
+                        "Description": "3/8\" ID x 84\" OAL with 3/8\" Female JIC Fittings each end with Fire Jacket",
+                        "price": 249.11,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-081000-16ST16ST",
+                        "Description": "1/2\" ID x 1000 mm OAL with -16 Straight Fitting each end",
+                        "price": 246.69,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-082000-16ST16ST",
+                        "Description": "1/2\" ID x 2000 mm OAL with -16 Straight fittings each end",
+                        "price": 320.18,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-100350388",
+                        "Description": "High Pressure Block Body Ball Valve with Locking Handle, 20 mm",
+                        "price": 287.82,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-10700-20ST20ST",
+                        "Description": "5/8\" ID x 700 mm OAL with -20 Straight Fittings each end",
+                        "price": 262.33,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-1648-16FJ16FJ-No",
+                        "Description": "1\" ID x 48\" OAL with 1\" Female JIC Swivel Fittings each end",
+                        "price": 250.77,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-201100-38ST38ST",
+                        "Description": "1-1/4\" ID x 1100mm OAL with -38 Straight Fittings and Fire Jacket",
+                        "price": 846.95,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-2036-20MP",
+                        "Description": "1-1/4\" ID x 36\" OAL High Pressure Hydraulic Hose Assembly with Fire Jacket",
+                        "price": 572.11,
+                        "qty2025": 4.0
             },
             {
                         "Part Number": "CP-KJ-0836Whip",
                         "Description": "1/2\" ID Hydraulic Whip Assembly x 36\" Long with Chicago Fittings",
                         "price": 73.04,
-                        "qty2025": 4
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-KJ20050DJMDEC",
+                        "Description": "2\" ID x 50-foot long Double Jacket Mill Hose",
+                        "price": 355.5,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-S600682",
+                        "Description": "1\" Swivel Assembly, EES P/N: 100295326",
+                        "price": 279.35,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-SS1236MP",
+                        "Description": "3/4\" ID x 36\" OAL Stainless Steel Hose Assembly",
+                        "price": 193.49,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "CP-SS3217MP",
+                        "Description": "2\" ID x 17\" OAL Stainless Steel Hose Assembly",
+                        "price": 264.44,
+                        "qty2025": 4.0
+            },
+            {
+                        "Part Number": "6840-12-16",
+                        "Description": "3/4\" Male JIC x 1\" Code 61 Flange, Straight",
+                        "price": 38.95,
+                        "qty2025": 3.0
+            },
+            {
+                        "Part Number": "6890-12-12",
+                        "Description": "3/4\" Male JIC x 3/4\" Code 61 Flange, 90 Elbow",
+                        "price": 38.22,
+                        "qty2025": 3.0
+            },
+            {
+                        "Part Number": "CP-06600-6FJ6FJ",
+                        "Description": "3/8\" ID x 600 mm OAL with 3/8\" Female JIC Swivel each end",
+                        "price": 148.92,
+                        "qty2025": 3.0
+            },
+            {
+                        "Part Number": "CP-081050-16ST1690",
+                        "Description": "1/2\" ID x 1050 mm OAL with -16 Straight and -16 90 Deg",
+                        "price": 262.13,
+                        "qty2025": 3.0
+            },
+            {
+                        "Part Number": "CP-101600-20ST20ST",
+                        "Description": "5/8\" ID x 1600 mm OAL with -20 Straight Fittings each end",
+                        "price": 332.54,
+                        "qty2025": 3.0
+            },
+            {
+                        "Part Number": "CP-1268-FJFJ",
+                        "Description": "3/4\" ID x 68\" OAL Hydraulic Hose Assembly with 3/4\" Female JIC",
+                        "price": 397.37,
+                        "qty2025": 3.0
+            },
+            {
+                        "Part Number": "CP-16800-30ST30ST",
+                        "Description": "1\" ID x 800 mm OAL with -30 Straight Fittings each end and Fire Jacket",
+                        "price": 522.45,
+                        "qty2025": 3.0
+            },
+            {
+                        "Part Number": "CP-188DECY1620",
+                        "Description": "1\" ID x 88-foot DeCarb Hose Assembly",
+                        "price": 1679.01,
+                        "qty2025": 3.0
+            },
+            {
+                        "Part Number": "CP-SS32120MP",
+                        "Description": "2\" ID x 10-foot OAL Stainless Steel Hose Assembly",
+                        "price": 542.82,
+                        "qty2025": 3.0
+            },
+            {
+                        "Part Number": "CP-SS3272MP",
+                        "Description": "2\" ID x 6-foot OAL Stainless Steel Hose Assembly",
+                        "price": 487.33,
+                        "qty2025": 3.0
+            },
+            {
+                        "Part Number": "CP-06800-6FJ6FJ",
+                        "Description": "3/8\" ID x 800 mm OAL with 3/8\" Female JIC Swivel each end",
+                        "price": 149.23,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-081300-16ST1690",
+                        "Description": "1/2\" ID x 1300 mm OAL with -16 Straight and -16 90 Deg",
+                        "price": 348.83,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-081750-16ST1690",
+                        "Description": "1/2\" ID x 1750 mm OAL with -16 Straight and -16 90 Deg",
+                        "price": 367.44,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-08700-8FJ8FJ",
+                        "Description": "1/2\" ID x 700 mm OAL with 1/2\" Female JIC Swivel each end",
+                        "price": 193.44,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-08800-8FJ8FJ",
+                        "Description": "1/2\" ID x 800 mm OAL with 1/2\" Female JIC Swivel each end",
+                        "price": 254.64,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-101050-20ST2090",
+                        "Description": "5/8\" ID x 1050mm OAL with -20 Straight and -20 90 Deg",
+                        "price": 345.77,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-122000-25ST25ST",
+                        "Description": "3/4\" ID x 2000 mm OAL with 3/4\" Female -25 DIN Swivel",
+                        "price": 438.94,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-1237.5-MPMP-No",
+                        "Description": "3/4\" ID x 37.5\" OAL with 3/4\" Male Pipe each end",
+                        "price": 280.58,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-12750-12FJ12FJ-No",
+                        "Description": "3/4\" ID x 750 mm OAL with 3/4\" Female JIC Swivel each end",
+                        "price": 285.09,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-1557913-Red",
+                        "Description": "3/4\" ID x 50-foot long Steam hose assembly - Red",
+                        "price": 692.11,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-161200-16FJ16FJ",
+                        "Description": "1\" ID x 1200 mm OAL with 1\" Female JIC Swivel Fittings each end",
+                        "price": 513.04,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-201250-38ST3890",
+                        "Description": "1-1/4\" ID x 1250mm OAL with -38 Straight x -38 90 Deg",
+                        "price": 1098.78,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-20400-38ST38ST",
+                        "Description": "1-1/4\" ID x 400mm OAL with -38 Straight Fittings each end",
+                        "price": 672.31,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-KJ325EC",
+                        "Description": "3\" ID x 25-foot with E & C Aluminum",
+                        "price": 993.44,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-RLB0",
+                        "Description": "Insulating Roll Blanket, Lo-Voltage",
+                        "price": 3035.71,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-SS32120EC",
+                        "Description": "2\" ID x 10-foot OAL Stainless Steel Hose Assembly with E & C Cams",
+                        "price": 604.54,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-SS32240EC",
+                        "Description": "2\" ID x 20-foot OAL Stainless Steel Hose Assembly with E & C Cams",
+                        "price": 859.06,
+                        "qty2025": 2.0
+            },
+            {
+                        "Part Number": "CP-061550-6FJ6FJ",
+                        "Description": "3/8\" ID x 1550 mm OAL with 3/8\" Female JIC Swivel each end",
+                        "price": 189.81,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-081900-8FJ8FJ",
+                        "Description": "1/2\" ID x 1900 mm OAL with 1/2\" Female JIC each end and Fire Jacket",
+                        "price": 298.76,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-0830-8FJ8FJ90",
+                        "Description": "1/2\" ID x 30\" OAL with 1/2\" Female JIC Swivel x 1/2\" Female JIC 90",
+                        "price": 207.14,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-100339384",
+                        "Description": "Buna Cord, 13/64\" Diameter, 70 Duro, 100-foot",
+                        "price": 192,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-101250-20ST2090",
+                        "Description": "5/8\" ID x 1250mm OAL with -20 Straight and -20 90 Deg",
+                        "price": 363.75,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-10400-20ST2090",
+                        "Description": "5/8\" ID x 400 mm OAL with -20 Straight and -20 90 Deg",
+                        "price": 253.62,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-10500-20ST2090",
+                        "Description": "5/8\" ID x 500 mm OAL with -20 Straight Fittings each end",
+                        "price": 262.51,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-121250-25ST25ST",
+                        "Description": "3/4\" ID x 1250 mm OAL with 3/4\" Female -25 DIN Swivel",
+                        "price": 389.11,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-121800-12FJ12FJ",
+                        "Description": "3/4\" ID x 1800 mm OAL with 3/4\" Female JIC Swivel each end",
+                        "price": 321.49,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-12400-25ST2590",
+                        "Description": "3/4\" ID x 400mm OAL with 3/4\" Female -25 DIN Swivel x 90",
+                        "price": 353.11,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-161200-30ST30ST",
+                        "Description": "1\" ID x 1200 mm OAL with -30 Straight Fittings each end and Fire Jacket",
+                        "price": 567.43,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-1630774-Spring-L",
+                        "Description": "Spring Assembly",
+                        "price": 1603.44,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-1639-16FJ16FJ",
+                        "Description": "1\" ID x 39\" OAL with 1\" Female JIC Swivel Fittings each end",
+                        "price": 294.59,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-20800-38ST38ST",
+                        "Description": "1-1/4\" ID x 800mm OAL with -38 Straight Fittings each end",
+                        "price": 833.01,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-20900-38ST3890",
+                        "Description": "1-1/4\" ID x 900mm OAL with -38 Straight x -38 90 Deg",
+                        "price": 889.04,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-4755-49SS150#",
+                        "Description": "4\" Stainless Steel Hose with 150# Flange",
+                        "price": 981.23,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-CA-440EF-EC",
+                        "Description": "4\" ID x 40-foot long Extreme Flex Hose Assembly",
+                        "price": 1969.47,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-CL1000",
+                        "Description": "MagMate 1000# Holding Creative Lift Magnet",
+                        "price": 1256.99,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-KJ330EC",
+                        "Description": "3\" ID x 30-foot with E & C Aluminum",
+                        "price": 1085.49,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-SS6460MP150FL",
+                        "Description": "4\" ID x 60\" Long Stainless Steel Hose Assembly",
+                        "price": 748.26,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-SS96120MP150FL",
+                        "Description": "6\" ID x 120\" Long Stainless Steel Hose Assembly",
+                        "price": 1566.28,
+                        "qty2025": 1.0
             },
             {
                         "Part Number": "CP-TB-2253224",
                         "Description": "2\" ID Tank Truck x 25-foot long with 2\" MNPT x 1-1/2\" MNPT",
                         "price": 492.33,
-                        "qty2025": 1
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-TB125MPMP",
+                        "Description": "1\" ID Tank Truck x 25-foot long with 1\" MNPT each end",
+                        "price": 368.25,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-TB450EC",
+                        "Description": "4\" ID Tank Truck x 50-foot long with E & C Aluminum",
+                        "price": 1899.21,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-TB475LFEC",
+                        "Description": "4\" ID LayFlat Medium x 75-foot long with E & C Aluminum",
+                        "price": 798.91,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-TB650-45150Float",
+                        "Description": "6\" ID x 50-feet Travel x 45 Deg 150# Floating Flanges",
+                        "price": 8275,
+                        "qty2025": 1.0
+            },
+            {
+                        "Part Number": "CP-TBSS4830MP150",
+                        "Description": "3\" ID x 30\" OAL Stainless Steel Hose Assembly",
+                        "price": 435.67,
+                        "qty2025": 1.0
             }
 ];
 
         let cart = [];
-
-        function formatQty2025(qty) {
-            const value = Number(qty) || 0;
-            return value.toLocaleString(undefined, { maximumFractionDigits: 2 });
-        }
 
         function renderProducts(filteredProducts) {
             const grid = document.getElementById('products-grid');
@@ -1044,15 +1039,9 @@
                     </div>
                     
                     <div class="mt-auto pt-4 border-t space-y-4">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <div class="text-xs text-slate-500">Last price</div>
-                                <div class="price text-2xl">$${product.price.toFixed(2)}</div>
-                            </div>
-                            <div class="border-l border-slate-200 pl-4">
-                                <div class="text-xs text-slate-500">Ordered in 2025</div>
-                                <div class="text-2xl font-semibold text-slate-800">${formatQty2025(product.qty2025)}</div>
-                            </div>
+                        <div>
+                            <div class="text-xs text-slate-500">Last price</div>
+                            <div class="price text-2xl">$${product.price.toFixed(2)}</div>
                         </div>
 
                         <div class="flex items-center gap-3 pt-1">
@@ -1093,7 +1082,11 @@
             } else if (sortMode === 'price-high') {
                 filtered.sort((a, b) => b.price - a.price);
             } else {
-                filtered.sort((a, b) => a["Part Number"].localeCompare(b["Part Number"]));
+                filtered.sort((a, b) => {
+                    const qtyDiff = (b.qty2025 || 0) - (a.qty2025 || 0);
+                    if (qtyDiff !== 0) return qtyDiff;
+                    return a["Part Number"].localeCompare(b["Part Number"]);
+                });
             }
 
             renderProducts(filtered);
@@ -1210,8 +1203,12 @@
 
             poInput.classList.remove('border-red-500', 'ring-2', 'ring-red-100');
             
-            let body = `ORDER REQUEST - EES Coke Battery LLC\n\n`;
-            body += `PO Number: ${poNumber}\n\n`;
+            let body = `ORDER REQUEST - EES Coke Battery LLC
+
+`;
+            body += `PO Number: ${poNumber}
+
+`;
             body += `ITEMS:\n----------------------------------------\n`;
 
             let grandTotal = 0;
